@@ -1,0 +1,40 @@
+@import 'variables';
+
+.whatsapp-fab {
+    @apply fixed bottom-8 right-8 z-[100] flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95;
+
+    svg {
+        @apply w-8 h-8;
+    }
+
+    .fab-label {
+        @apply absolute right-20 bg-white text-industrial-dark px-4 py-2 rounded-lg text-sm font-bold shadow-md opacity-0 translate-x-4 transition-all duration-300 pointer-events-none whitespace-nowrap;
+    }
+
+    &:hover {
+        .fab-label {
+            @apply opacity-100 translate-x-0;
+        }
+    }
+}
+
+// Animation for the FAB to bounce slightly to attract attention
+@keyframes fab-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.whatsapp-fab {
+    animation: fab-bounce 3s infinite ease-in-out;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}

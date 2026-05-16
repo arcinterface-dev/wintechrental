@@ -1,0 +1,27 @@
+@import 'variables';
+
+.main-header {
+    @apply fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-transparent;
+
+    &.scrolled {
+        @apply bg-white/80 backdrop-blur-md border-industrial-slate/10 shadow-sm;
+    }
+
+    .nav-link {
+        @apply text-sm font-semibold text-industrial-slate hover:text-brand-primary transition-colors duration-300 relative py-2 uppercase tracking-wider;
+
+        &::after {
+            content: '';
+            @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brand-primary transition-all duration-300;
+        }
+
+        &:hover::after {
+            @apply w-full;
+        }
+
+        &.active {
+            @apply text-brand-primary;
+            &::after { @apply w-full; }
+        }
+    }
+}

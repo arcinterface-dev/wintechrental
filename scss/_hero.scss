@@ -1,0 +1,82 @@
+@import 'variables';
+
+.hero-section {
+    @apply relative min-h-screen flex items-center pt-32 bg-industrial-surface;
+    
+    .hero-bg-text {
+        @apply absolute -top-10 left-0 text-[20rem] font-black text-industrial-dark/[0.03] select-none pointer-events-none tracking-tighter leading-none;
+        z-index: 0;
+    }
+
+    .hero-image-container {
+        @apply relative rounded-[3rem] overflow-hidden shadow-2xl;
+        aspect-ratio: 4/5;
+        
+        .hero-main-img {
+            @apply w-full h-full object-cover;
+        }
+
+        &::after {
+            content: '';
+            @apply absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-transparent;
+        }
+    }
+
+    .floating-badge {
+        @apply absolute bg-white/90 backdrop-blur-md p-5 rounded-[2rem] shadow-2xl flex items-center gap-5 border border-white/50 z-20;
+        animation: float 6s ease-in-out infinite;
+        min-width: 240px;
+
+        .icon {
+            @apply w-14 h-14 bg-brand-primary rounded-2xl flex items-center justify-center text-white shadow-lg shrink-0;
+            i { @apply w-7 h-7; }
+        }
+
+        .badge-text {
+            @apply flex flex-col;
+            .title { @apply text-base font-black text-industrial-dark; }
+            .sub { @apply text-[11px] text-industrial-gray font-black uppercase tracking-widest; }
+        }
+
+        &.badge-1 {
+            @apply top-[10%] -left-16;
+        }
+
+        &.badge-2 {
+            @apply bottom-[15%] -right-12;
+            animation-delay: -3s;
+        }
+    }
+
+    .hero-shape-1 {
+        @apply absolute -top-20 -right-20 w-80 h-80 bg-brand-primary/5 rounded-full blur-3xl;
+    }
+
+    .hero-shape-2 {
+        @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-3xl;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@media (max-width: 1024px) {
+    .hero-section {
+        @apply pt-24 pb-16;
+        
+        .hero-bg-text {
+            @apply text-[10rem];
+        }
+
+        .hero-visual {
+            @apply mt-16;
+        }
+
+        .floating-badge {
+            &.badge-1 { @apply -top-6 -left-4; }
+            &.badge-2 { @apply -bottom-6 -right-4; }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "wintech",
+  "version": "1.0.0",
+  "description": "WinTech Equipment Rental Website",
+  "main": "index.html",
+  "scripts": {
+    "build:sass": "sass scss/main.scss css/style.css",
+    "build:tailwind": "postcss css/style.css -o css/output.css",
+    "build": "npm run build:sass && npm run build:tailwind",
+    "watch:sass": "sass scss/main.scss css/style.css --watch",
+    "watch:tailwind": "postcss css/style.css -o css/output.css --watch",
+    "server": "npx http-server ./ -p 8080",
+    "dev": "concurrently \"npm run watch:sass\" \"npm run watch:tailwind\"",
+    "start": "concurrently \"npm run watch:sass\" \"npm run watch:tailwind\" \"npm run server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.85.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

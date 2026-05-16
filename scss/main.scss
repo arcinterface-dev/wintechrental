@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'variables';
+@import 'base';
+@import 'header';
+@import 'hero';
+@import 'equipment';
+@import 'services';
+@import 'footer';
+@import 'fab';

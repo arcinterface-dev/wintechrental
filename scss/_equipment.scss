@@ -1,0 +1,55 @@
+@import 'variables';
+
+.equipment-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-12 mt-16;
+}
+
+.equipment-card {
+    @apply bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 transition-all duration-500 hover:shadow-2xl hover:border-brand-primary/20 hover:-translate-y-3;
+
+    .image-wrapper {
+        @apply relative h-96 overflow-hidden bg-slate-50 flex items-center justify-center;
+
+        img {
+            @apply w-full h-full object-cover transition-transform duration-1000;
+        }
+
+        &::after {
+            content: '';
+            @apply absolute inset-0 bg-gradient-to-t from-industrial-dark/20 to-transparent opacity-0 transition-opacity duration-500;
+        }
+    }
+
+    &:hover {
+        .image-wrapper img {
+            @apply scale-110;
+        }
+        .image-wrapper::after {
+            @apply opacity-100;
+        }
+    }
+
+    .content {
+        @apply p-10 text-left;
+    }
+
+    h3 {
+        @apply text-industrial-dark font-black tracking-tight mb-3;
+    }
+
+    .specs {
+        @apply mt-8 grid grid-cols-2 gap-y-6 gap-x-8 border-t border-slate-100 pt-8;
+
+        .spec-item {
+            @apply flex flex-col;
+
+            .label {
+                @apply text-[10px] uppercase font-black tracking-[0.2em] text-industrial-gray mb-1;
+            }
+
+            .value {
+                @apply text-xl font-black text-industrial-dark;
+            }
+        }
+    }
+}
