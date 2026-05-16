@@ -1,7 +1,7 @@
 @import 'variables';
 
 .hero-section {
-    @apply relative min-h-screen flex items-center pt-32 bg-industrial-surface;
+    @apply relative min-h-screen flex items-center pt-32 overflow-hidden bg-industrial-surface;
     
     .hero-bg-text {
         @apply absolute -top-10 left-0 text-[20rem] font-black text-industrial-dark/[0.03] select-none pointer-events-none tracking-tighter leading-none;
@@ -49,11 +49,11 @@
     }
 
     .hero-shape-1 {
-        @apply absolute -top-20 -right-20 w-80 h-80 bg-brand-primary/5 rounded-full blur-3xl;
+        @apply absolute -top-20 -right-20 w-80 h-80 bg-brand-primary/5 rounded-full blur-3xl hidden lg:block;
     }
 
     .hero-shape-2 {
-        @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-3xl;
+        @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-3xl hidden lg:block;
     }
 }
 
@@ -71,12 +71,42 @@
         }
 
         .hero-visual {
-            @apply mt-16;
+            @apply mt-16 px-4;
         }
 
         .floating-badge {
-            &.badge-1 { @apply -top-6 -left-4; }
-            &.badge-2 { @apply -bottom-6 -right-4; }
+            @apply p-3 min-w-[180px] rounded-2xl gap-3;
+            
+            .icon {
+                @apply w-10 h-10 rounded-xl;
+                i { @apply w-5 h-5; }
+            }
+
+            .badge-text {
+                .title { @apply text-xs; }
+                .sub { @apply text-[9px]; }
+            }
+
+            &.badge-1 { 
+                @apply top-0 left-0; 
+                transform: translate(-10px, -10px);
+            }
+            &.badge-2 { 
+                @apply bottom-0 right-0; 
+                transform: translate(10px, 10px);
+                animation-delay: -3s;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-section {
+        .hero-bg-text { @apply hidden; }
+        h1 { @apply text-5xl; }
+        .floating-badge {
+            &.badge-1 { transform: translate(0, -20px); }
+            &.badge-2 { transform: translate(0, 20px); }
         }
     }
 }

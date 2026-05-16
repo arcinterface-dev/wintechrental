@@ -24,10 +24,11 @@
     <link rel="stylesheet" href="css/output.css">
 </head>
 
-<body>
+<body class="overflow-x-hidden">
+    <div class="overflow-x-hidden w-full">
     <!-- Navbar -->
     <header class="main-header" id="navbar">
-        <div class="container flex items-center justify-between h-20">
+        <div class="container flex items-center justify-between h-20 px-4">
             <div class="logo">
                 <a href="#" class="flex items-center gap-3">
                     <img src="assets/wintech-logo.png" alt="WinTech Logo" class="h-10 w-auto">
@@ -41,7 +42,7 @@
                 <a href="#about" class="nav-link">About Us</a>
             </nav>
             <div class="cta">
-                <a href="#contact" class="btn btn-primary">Contact Us</a>
+                <a href="#contact" class="btn btn-primary !py-1.5 !px-3 md:!py-4 md:!px-8 !text-[9px] md:!text-sm">Contact Us</a>
             </div>
         </div>
     </header>
@@ -74,7 +75,7 @@
                         </div>
                         
                         <!-- Trust Stats -->
-                        <div class="grid grid-cols-3 gap-8 mt-16 pt-12 border-t border-slate-200">
+                        <div class="grid grid-cols-3 gap-4 md:gap-8 mt-16 pt-12 border-t border-slate-200">
                             <div>
                                 <span class="block text-3xl font-black text-industrial-dark">20T+</span>
                                 <span class="text-[10px] text-industrial-gray font-bold uppercase tracking-widest">Pull Capacity</span>
@@ -288,7 +289,7 @@
                             industrial standards.
                         </p>
 
-                        <div class="grid grid-cols-2 gap-12 py-12 border-t border-slate-200">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 py-12 border-t border-slate-200">
                             <div>
                                 <span class="text-5xl font-black text-brand-primary block mb-2">100%</span>
                                 <span class="text-industrial-gray text-[10px] font-black uppercase tracking-widest">Reliability Rate</span>
@@ -422,6 +423,7 @@
         // Initialize Lucide Icons
         lucide.createIcons();
     </script>
+    </div>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 
 body {
     @apply font-sans text-industrial-dark overflow-x-hidden;
+    width: 100%;
     background: linear-gradient(135deg, $surface 0%, $surface-dark 100%);
     position: relative;
 
