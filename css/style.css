@@ -322,4 +322,34 @@ footer .bottom-footer {
   animation-play-state: paused;
 }
 
+#contact .form-group input, #contact .form-group select, #contact .form-group textarea {
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+#contact .form-group input::placeholder, #contact .form-group select::placeholder, #contact .form-group textarea::placeholder {
+  @apply text-slate-400 font-normal;
+}
+#contact .form-group input:focus, #contact .form-group select:focus, #contact .form-group textarea:focus {
+  @apply border-brand-primary/80 ring-4 ring-brand-primary/10;
+  box-shadow: 0 4px 12px rgba(0, 112, 243, 0.05);
+}
+#contact .form-group input.invalid, #contact .form-group select.invalid, #contact .form-group textarea.invalid {
+  @apply border-red-500 ring-4 ring-red-500/10 bg-red-50/10;
+}
+#contact .form-group input.invalid + .error-msg, #contact .form-group select.invalid + .error-msg, #contact .form-group textarea.invalid + .error-msg {
+  @apply h-auto opacity-100 mt-2;
+}
+#contact .form-group select {
+  background-image: none;
+}
+#contact .form-group textarea {
+  min-height: 120px;
+}
+#contact #contact-success.active {
+  @apply opacity-100 pointer-events-auto;
+}
+#contact #contact-success.active #success-icon {
+  @apply scale-100;
+}
+
 /*# sourceMappingURL=style.css.map */
