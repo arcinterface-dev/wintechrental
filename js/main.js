@@ -67,10 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Secure B2B Contact Form Validation & Processing ---
     const inquiryForm = document.getElementById('inquiry-form');
-    const successOverlay = document.getElementById('contact-success');
-    const successNameSpan = document.getElementById('success-name');
-    const successWaBtn = document.getElementById('success-wa-btn');
-    const successResetBtn = document.getElementById('success-reset-btn');
 
     if (inquiryForm) {
         // Simple HTML Sanitizer to prevent XSS
@@ -144,20 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const whatsappText = `Hello WinTech Mooring UAE,\n\nI have submitted a B2B inquiry on your site:\n\n*Name:* ${name}\n*Company:* ${company}\n*Email:* ${email}\n*Phone:* ${phone}\n*Interest:* ${inquiry}\n*Operational Message:* ${message}`;
                 const encodedText = encodeURIComponent(whatsappText);
                 const finalUrl = `${whatsappBase}?text=${encodedText}`;
-                
-                // Set href of redirection button
-                successWaBtn.href = finalUrl;
-
-                // Prefill Success Message details safely
-                successNameSpan.innerText = name;
-
-                // Show dynamic premium success overlay
-                successOverlay.classList.add('active');
 
                 // Direct open WhatsApp in a new secure tab
                 window.open(finalUrl, '_blank', 'noopener,noreferrer');
 
-                // Reset the form
+                // Reset the form cleanly
                 inquiryForm.reset();
             }
         });
@@ -173,11 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Reset Overlay Button Handler
-        if (successResetBtn) {
-            successResetBtn.addEventListener('click', () => {
-                successOverlay.classList.remove('active');
-            });
-        }
+        // Unused overlay handlers removed for direct WhatsApp conversion
     }
 });
