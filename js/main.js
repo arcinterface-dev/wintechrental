@@ -143,15 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const whatsappBase = "https://wa.me/971545751720";
                 const whatsappText = `Hello WinTech Mooring UAE,\n\nI have submitted a B2B inquiry on your site:\n\n*Name:* ${name}\n*Company:* ${company}\n*Email:* ${email}\n*Phone:* ${phone}\n*Interest:* ${inquiry}\n*Operational Message:* ${message}`;
                 const encodedText = encodeURIComponent(whatsappText);
+                const finalUrl = `${whatsappBase}?text=${encodedText}`;
                 
-                // Set href of immediate redirection button
-                successWaBtn.href = `${whatsappBase}?text=${encodedText}`;
+                // Set href of redirection button
+                successWaBtn.href = finalUrl;
 
                 // Prefill Success Message details safely
                 successNameSpan.innerText = name;
 
                 // Show dynamic premium success overlay
                 successOverlay.classList.add('active');
+
+                // Direct open WhatsApp in a new secure tab
+                window.open(finalUrl, '_blank', 'noopener,noreferrer');
 
                 // Reset the form
                 inquiryForm.reset();
